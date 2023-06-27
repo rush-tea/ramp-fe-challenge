@@ -17,13 +17,7 @@ export function useTransactionsByEmployee(): TransactionsByEmployeeResult {
         }
       )
 
-      setTransactionsByEmployee((prevData) => {
-        if (prevData && data) {
-          return [...prevData, ...data];
-        } else {
-          return data;
-        }
-      });   
+      setTransactionsByEmployee(data);   
     },
     [fetchWithCache]
   )

@@ -21,7 +21,10 @@ export const getTransactionsPaginated = ({
   page,
 }: PaginatedRequestParams): PaginatedResponse<Transaction[]> => {
   if (page === null) {
-    throw new Error("Page cannot be null")
+    return {
+      nextPage : null,
+      data: []
+    }
   }
 
   const start = page * TRANSACTIONS_PER_PAGE
